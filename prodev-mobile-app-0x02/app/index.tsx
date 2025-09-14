@@ -1,16 +1,8 @@
 import React from "react";
-import { 
-  ImageBackground, 
-  Dimensions, 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  Image, 
-  StyleSheet 
-} from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, Text, View, ImageBackground, Image, Dimensions, TouchableOpacity } from "react-native";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
-// Import your images
+// Images
 import companyLogo from "@/assets/images/Logo.png";
 import backgroundImage from "@/assets/images/background-image.png";
 
@@ -22,17 +14,14 @@ export default function App({ navigation }) {
           source={backgroundImage}
           style={styles.background}
         >
-          {/* Company Logo */}
           <Image source={companyLogo} style={styles.companyLogo} />
 
-          {/* Text Elements */}
           <View style={styles.textGroup}>
             <Text style={styles.textLarge}>Find your favorite place here</Text>
-            <Text style={styles.textSmall}>The best prices for over 2</Text>
+            <Text style={styles.textSmall}>The best prices for over 2 </Text>
             <Text style={styles.textSmall}>million properties worldwide</Text>
           </View>
 
-          {/* Button Group */}
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Continue to home</Text>
           </TouchableOpacity>
@@ -48,9 +37,7 @@ export default function App({ navigation }) {
 const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: { flex: 1 },
   background: {
     width,
     height,
@@ -58,50 +45,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
   },
-  companyLogo: {
-    width: 120,
-    height: 120,
-    marginBottom: 30,
-  },
-  textGroup: {
-    alignItems: "center",
-    marginBottom: 40,
-  },
-  textLarge: {
-    fontSize: 26,
-    fontWeight: "bold",
-    color: "#fff",
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  textSmall: {
-    fontSize: 16,
-    color: "#fff",
-    textAlign: "center",
-  },
-  button: {
-    backgroundColor: "#2f95dc",
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    borderRadius: 10,
-    marginBottom: 15,
-  },
-  buttonText: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 16,
-  },
-  transparentButton: {
-    borderWidth: 2,
-    borderColor: "#fff",
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    borderRadius: 10,
-  },
-  transparentButtonText: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 16,
-  },
+  companyLogo: { width: 120, height: 120, marginBottom: 30 },
+  textGroup: { alignItems: "center", marginBottom: 40 },
+  textLarge: { fontSize: 26, fontWeight: "bold", color: "#fff", textAlign: "center", marginBottom: 10 },
+  textSmall: { fontSize: 16, color: "#fff", textAlign: "center" },
+  button: { backgroundColor: "#2f95dc", paddingVertical: 15, paddingHorizontal: 40, borderRadius: 10, marginBottom: 15 },
+  buttonText: { color: "#fff", fontWeight: "bold", fontSize: 16 },
+  transparentButton: { borderWidth: 2, borderColor: "#fff", paddingVertical: 15, paddingHorizontal: 40, borderRadius: 10 },
+  transparentButtonText: { color: "#fff", fontWeight: "bold", fontSize: 16 },
 });
-
