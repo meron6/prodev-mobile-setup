@@ -1,36 +1,107 @@
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { 
+  ImageBackground, 
+  Dimensions, 
+  View, 
+  Text, 
+  TouchableOpacity, 
+  Image, 
+  StyleSheet 
+} from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-export default function App() {
+// Import your images
+import companyLogo from "@/assets/images/Logo.png";
+import backgroundImage from "@/assets/images/background-image.png";
+
+export default function App({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.largeText}>Entry Screen - Awesome</Text>
-      <Text style={styles.mediumText}>Welcome to your app!</Text>
-      <Text style={styles.smallText}>Let's start building with Expo.</Text>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <ImageBackground
+          source={backgroundImage}
+          style={styles.background}
+        >
+          {/* Company Logo */}
+          <Image source={companyLogo} style={styles.companyLogo} />
+
+          {/* Text Elements */}
+          <View style={styles.textGroup}>
+            <Text style={styles.textLarge}>Find your favorite place here</Text>
+            <Text style={styles.textSmall}>The best prices for over 2</Text>
+            <Text style={styles.textSmall}>million properties worldwide</Text>
+          </View>
+
+          {/* Button Group */}
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Continue to home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.transparentButton}>
+            <Text style={styles.transparentButtonText}>Sign in</Text>
+          </TouchableOpacity>
+        </ImageBackground>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
+
+const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  background: {
+    width,
+    height,
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
   },
-  largeText: {
-    fontSize: 28,
+  companyLogo: {
+    width: 120,
+    height: 120,
+    marginBottom: 30,
+  },
+  textGroup: {
+    alignItems: "center",
+    marginBottom: 40,
+  },
+  textLarge: {
+    fontSize: 26,
     fontWeight: "bold",
+    color: "#fff",
+    textAlign: "center",
     marginBottom: 10,
   },
-  mediumText: {
-    fontSize: 20,
-    fontWeight: "500",
-    marginBottom: 5,
+  textSmall: {
+    fontSize: 16,
+    color: "#fff",
+    textAlign: "center",
   },
-  smallText: {
-    fontSize: 14,
-    fontWeight: "400",
-    color: "#666",
+  button: {
+    backgroundColor: "#2f95dc",
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    marginBottom: 15,
   },
-})
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  transparentButton: {
+    borderWidth: 2,
+    borderColor: "#fff",
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+  },
+  transparentButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+});
 
